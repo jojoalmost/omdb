@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {useHistory} from 'react-router-dom';
 import styles from './Card.module.css'
 import {Button} from "../../../components/button";
 import {Badge} from "../../../components/badge";
@@ -10,6 +11,8 @@ const Card = ({
                   Year,
                   imdbID,
               }) => {
+    const history = useHistory();
+
     return (
         <div className={styles.container} role="button">
             <div className={styles.imageContainer}>
@@ -20,8 +23,8 @@ const Card = ({
                 </div>
             </div>
             <div className={styles.description}>
-                <h4>{Title}</h4>
-                <div>{Year}</div>
+                <h4>{Title} ({Year})</h4>
+                <Button type='secondary' onClick={() => history.push(`/movie/${imdbID}`)}>See Detail</Button>
             </div>
         </div>
     )

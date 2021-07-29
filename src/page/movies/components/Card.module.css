@@ -43,8 +43,13 @@
 
 .container .description {
     padding: 12px;
+    display: flex;
+    flex-direction: column;
+    min-height: 120px;
 }
 
-.container h4 {
+.container .description h4 {
     margin: 0;
+    flex: 1;
+    text-align: center;
 }
