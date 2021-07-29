@@ -1,0 +1,32 @@
+.container {
+    display: flex;
+}
+
+.leftContent {
+    margin-right: 24px;
+}
+
+.rightContent {
+}
+
+.tableDetail {
+    width: 100%;
+    margin-bottom: 1rem;
+    background-color: transparent;
+    border-collapse: collapse
+}
+
+.tableDetail tbody tr:hover {
+    background-color: rgba(76, 76, 76, 1);
+}
+
+.tableDetail td, .tableDetail th {
+    padding: .75rem;
+    vertical-align: top;
+    border-top: 1px solid;
+    border-color: rgb(76, 76, 76);
+}
+
+.tableDetail td:first-child {
+    font-weight: bold;
+}
