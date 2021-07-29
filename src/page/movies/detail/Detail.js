@@ -12,7 +12,8 @@ const Detail = () => {
     React.useEffect(() => {
         api.get('', {
             params: {
-                i: movieId
+                i: movieId,
+                plot: 'full'
             }
         }).then(res => {
             console.log(res);

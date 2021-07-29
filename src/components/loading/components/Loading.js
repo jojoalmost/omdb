@@ -1,5 +1,5 @@
 import * as React from 'react';
-import styles from '../styles.module.css';
+import styles from './Loading.module.css';
 
 const Loading = () => (
     <div className={styles.loading} />

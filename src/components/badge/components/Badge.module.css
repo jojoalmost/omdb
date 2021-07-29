@@ -1,0 +1,31 @@
+.badge {
+    display: inline-block;
+    padding: .25em .4em;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 1rem;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25rem;
+    text-transform: capitalize;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.primary {
+    color: #5799ef;
+    background-color: #ebebeb;
+    border-color: #ebebeb;
+}
+
+.secondary {
+    color: #000;
+    background-color: #f5c518;
+    border-color: #f5c518;
+}
+
+.danger {
+    color: #fff;
+    background-color: #fb3c3c;
+    border-color: #fb3c3c;
+}
