@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
-import Movies from "./page/movies";
+import Movies from "./pages/movies";
 import {Loading} from "./components/loading";
 
 function App() {
