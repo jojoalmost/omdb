@@ -1,4 +1,3 @@
-export { default as Alert } from './Alert/Alert';
 export { default as Card } from './Card/Card';
 export { default as DetailItem } from './DetailItem/DetailItem';
 export { default as ListItem } from './ListItem/ListItem';

@@ -4,7 +4,7 @@ import styles from './Detail.module.css';
 
 import api from "../../../utils/api";
 import {useHistory} from "react-router-dom";
-import {Title, DetailItem, Alert} from "../components";
+import {Title, DetailItem} from "../components";
 import {LoadingWrapper} from "../../../components/loading";
 import {Button} from "../../../components/button";
 import {useDispatch, useSelector} from "react-redux";
@@ -12,6 +12,7 @@ import {clearErrorMessage, hideLoading, setErrorMessage, showLoading} from "../.
 import {setMovieDetail} from "../../../stores/movies/actions";
 import {getMainApp} from "../../../stores/main/selectors";
 import {getMovieDetail} from "../../../stores/movies/selectors";
+import {Alert} from "../../../components/alert";
 
 const Detail = () => {
     const history = useHistory();
