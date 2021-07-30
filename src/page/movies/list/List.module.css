@@ -3,3 +3,8 @@
     grid-template-columns: repeat(5, 1fr);
     grid-gap: 24px;
 }
+.loadingContainer{
+    display: flex;
+    margin: 24px 0;
+    justify-content: center;
+}
