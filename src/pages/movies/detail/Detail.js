@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {useParams} from "react-router";
+import styles from './Detail.module.css';
 
 import api from "../../../utils/api";
 import {initStateMovieDetail} from "../../../utils/defaultState";
@@ -22,7 +23,7 @@ const Detail = () => {
 
     const {Title: title, Year} = detail;
     return (
-        <div>
+        <div className={styles.container}>
             <Title title={`${title} (${Year})`}/>
             <DetailItem {...detail} />
         </div>

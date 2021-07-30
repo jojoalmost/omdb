@@ -2,10 +2,10 @@ import * as React from 'react';
 import api from "../../../utils/api";
 
 import styles from "./List.module.css"
-import {ModalPoster, SearchBar, Card, Title} from "../components";
+import {ModalPoster, SearchBar, Title} from "../components";
 import {useDebounce} from "../../../utils/hooks";
 import {InfiniteScroll} from "../../../components/infinitescroll";
-import {Loading} from "../../../components/loading";
+import {LoadingWrapper} from "../../../components/loading";
 import ListItem from "../components/ListItem/ListItem";
 
 const List = () => {
@@ -82,7 +82,7 @@ const List = () => {
     }, [debouncedSearch]);
 
     return (
-        <div>
+        <div className={styles.container}>
             <Title title="Omdb Movie List"/>
             <SearchBar
                 onSearch={handleSearch}
@@ -95,9 +95,7 @@ const List = () => {
                 loadOnMount={false}
             >
                 <ListItem movies={movies} onPreviewPoster={handlePreviewPoster}/>
-                {isLoading && (
-                    <div className={styles.loadingContainer}><Loading/></div>
-                )}
+                {isLoading && <LoadingWrapper />}
             </InfiniteScroll>
             <ModalPoster
                 show={showPoster}

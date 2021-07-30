@@ -1,5 +1,6 @@
 .modal {
-    width: 400px;
+    width: 400px !important;
+    min-width: 400px !important;
 }
 
 .modal img {
