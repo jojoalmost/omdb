@@ -1,9 +1,8 @@
 import * as React from 'react';
 
-const DetailTitle = ({title = '', subtitle = ''}) => (
+const DetailTitle = ({title = ''}) => (
     <div>
         <h1>{title}</h1>
-        <div>{subtitle}</div>
     </div>
 )
 export default DetailTitle;

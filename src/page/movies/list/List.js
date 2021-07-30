@@ -5,7 +5,6 @@ import Card from "../components/Card";
 
 import styles from "./List.module.css"
 import SearchBar from "../components/SearchBar";
-import {Modal} from "../../../components/modal";
 import ModalPoster from "../components/ModalPoster";
 
 const List = () => {
@@ -37,6 +36,7 @@ const List = () => {
             setMovies(res.Search);
         })
     }, []);
+
     return (
         <div>
             <Title title="Omdb Movie List"/>
@@ -46,6 +46,7 @@ const List = () => {
                 onFilter={setfilter}
                 filterBy={filter}
             />
+
             <div className={styles.cardContainer}>
                 {movies.map(movie => <Card {...movie} onPreviewPoster={handlePreviewPoster}/>)}
             </div>
