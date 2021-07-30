@@ -31,11 +31,11 @@ const List = () => {
         setShowPoster(true);
     }
 
-    const fetchMovies = (s) => {
+    const fetchMovies = () => {
         setIsLoading(true);
         api.get('', {
             params: {
-                s,
+                s: query,
                 page,
             }
         }).then(res => {
@@ -77,7 +77,7 @@ const List = () => {
     }
 
     React.useEffect(() => {
-        fetchMovies(query || defaultMovies);
+        fetchMovies();
         setPage(1);
     }, [debouncedSearch]);
 
@@ -95,7 +95,7 @@ const List = () => {
                 loadOnMount={false}
             >
                 <ListItem movies={movies} onPreviewPoster={handlePreviewPoster}/>
-                {isLoading && <LoadingWrapper />}
+                {isLoading && <LoadingWrapper/>}
             </InfiniteScroll>
             <ModalPoster
                 show={showPoster}
