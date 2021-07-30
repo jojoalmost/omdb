@@ -1,14 +1,12 @@
 import * as React from 'react';
-import {Title} from "../components";
 import api from "../../../utils/api";
-import Card from "../components/Card";
 
 import styles from "./List.module.css"
-import SearchBar from "../components/SearchBar";
-import ModalPoster from "../components/ModalPoster";
+import {ModalPoster, SearchBar, Card, Title} from "../components";
 import {useDebounce} from "../../../utils/hooks";
 import {InfiniteScroll} from "../../../components/infinitescroll";
 import {Loading} from "../../../components/loading";
+import ListItem from "../components/ListItem/ListItem";
 
 const List = () => {
     const defaultMovies = 'disney';
@@ -48,7 +46,7 @@ const List = () => {
             setTotalPage(getTotalPage);
         }).catch(e => {
             console.error(e);
-        }).finally(()=>{
+        }).finally(() => {
             setIsLoading(false);
         })
     }
@@ -67,7 +65,7 @@ const List = () => {
 
         }).catch(e => {
             console.error(e);
-        }).finally(()=>{
+        }).finally(() => {
             setIsLoading(false);
         });
     }
@@ -96,9 +94,7 @@ const List = () => {
                 onBottomHit={loadMoreMovies}
                 loadOnMount={false}
             >
-                <div className={styles.cardContainer}>
-                    {movies.map(movie => <Card {...movie} onPreviewPoster={handlePreviewPoster}/>)}
-                </div>
+                <ListItem movies={movies} onPreviewPoster={handlePreviewPoster}/>
                 {isLoading && (
                     <div className={styles.loadingContainer}><Loading/></div>
                 )}

@@ -1,10 +1,9 @@
 import * as React from 'react';
-import {useHistory, useParams} from "react-router";
+import {useParams} from "react-router";
 
 import api from "../../../utils/api";
-import DetailItem from "../components/DetailItem";
 import {initStateMovieDetail} from "../../../utils/defaultState";
-import Title from "../components/Title";
+import {Title, DetailItem} from "../components";
 
 const Detail = () => {
     const [detail, setDetail] = React.useState(initStateMovieDetail);

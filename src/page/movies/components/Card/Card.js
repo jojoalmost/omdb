@@ -1,8 +1,8 @@
 import * as React from 'react';
 import {useHistory} from 'react-router-dom';
 import styles from './Card.module.css'
-import {Button} from "../../../components/button";
-import {Badge} from "../../../components/badge";
+import {Button} from "../../../../components/button";
+import {Badge} from "../../../../components/badge";
 
 const Card = ({
                   Poster,
