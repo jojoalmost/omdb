@@ -1,7 +1,7 @@
 import {render, screen} from '@testing-library/react';
 import Modal from "./Modal";
 
-test('render modal', () => {
+test('renders component modal', () => {
     render(
         <Modal show title='this is title' onClose={jest.fn()}>
             <div></div>
