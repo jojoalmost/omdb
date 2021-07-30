@@ -1,6 +1,8 @@
 const mainActionType = {
-    SHOW_LOADING : 'SHOW_LOADING',
+    SHOW_LOADING: 'SHOW_LOADING',
     HIDE_LOADING: 'HIDE_LOADING',
+    SET_ERROR_MESSAGE: 'SET_ERROR_MESSAGE',
+    CLEAR_ERROR_MESSAGE: 'CLEAR_ERROR_MESSAGE',
 }
 
 export default mainActionType;

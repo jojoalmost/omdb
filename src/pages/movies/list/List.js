@@ -2,11 +2,10 @@ import * as React from 'react';
 import api from "../../../utils/api";
 
 import styles from "./List.module.css"
-import {ModalPoster, SearchBar, Title} from "../components";
+import {ModalPoster, SearchBar, ListItem, Title} from "../components";
 import {useDebounce} from "../../../utils/hooks";
 import {InfiniteScroll} from "../../../components/infinitescroll";
 import {LoadingWrapper} from "../../../components/loading";
-import ListItem from "../components/ListItem/ListItem";
 import {useDispatch} from "react-redux";
 import {setModalPoster} from "../../../stores/movies/actions";
 
