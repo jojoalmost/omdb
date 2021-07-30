@@ -7,14 +7,16 @@ import {useDebounce} from "../../../utils/hooks";
 import {InfiniteScroll} from "../../../components/infinitescroll";
 import {LoadingWrapper} from "../../../components/loading";
 import ListItem from "../components/ListItem/ListItem";
+import {useDispatch} from "react-redux";
+import {setModalPoster} from "../../../stores/movies/actions";
 
 const List = () => {
     const defaultMovies = 'disney';
+    const dispatch = useDispatch();
 
     const [movies, setMovies] = React.useState([]);
     const [query, setQuery] = React.useState('');
     const [page, setPage] = React.useState(1);
-    const [selected, setSelected] = React.useState({});
     const [showPoster, setShowPoster] = React.useState(false);
     const [isLoading, setIsLoading] = React.useState(false);
     const [totalPage, setTotalPage] = React.useState(0)
@@ -27,15 +29,15 @@ const List = () => {
 
     const handlePreviewPoster = id => {
         const find = movies.find(({imdbID}) => imdbID === id);
-        setSelected(find);
+        dispatch(setModalPoster(find));
         setShowPoster(true);
     }
 
-    const fetchMovies = () => {
+    const fetchMovies = (s) => {
         setIsLoading(true);
         api.get('', {
             params: {
-                s: query,
+                s,
                 page,
             }
         }).then(res => {
@@ -77,7 +79,7 @@ const List = () => {
     }
 
     React.useEffect(() => {
-        fetchMovies();
+        fetchMovies(query || defaultMovies);
         setPage(1);
     }, [debouncedSearch]);
 
@@ -95,11 +97,10 @@ const List = () => {
                 loadOnMount={false}
             >
                 <ListItem movies={movies} onPreviewPoster={handlePreviewPoster}/>
-                {isLoading && <LoadingWrapper/>}
+                {isLoading && <LoadingWrapper />}
             </InfiniteScroll>
             <ModalPoster
                 show={showPoster}
-                {...selected}
                 onClose={() => setShowPoster(!showPoster)}
             />
         </div>

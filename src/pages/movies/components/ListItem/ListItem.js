@@ -4,7 +4,7 @@ import styles from "./ListItem.module.css";
 
 const ListItem = ({movies, onPreviewPoster}) => (
     <div className={styles.container}>
-        {movies.map(movie => <Card key={movie.imdbID} {...movie} onPreviewPoster={onPreviewPoster}/>)}
+        {movies.map((movie, index) => <Card key={index} {...movie} onPreviewPoster={onPreviewPoster}/>)}
     </div>
 );
 export default ListItem;
