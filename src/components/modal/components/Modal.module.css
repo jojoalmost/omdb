@@ -14,13 +14,20 @@
 .content {
     background: #FFFFFF;
     min-width: 500px;
+    border-radius: 16px;
+    color: #000;
 }
 
 .header, .footer {
     padding: 10px;
 }
 
+.header {
+    display: flex;
+}
+
 .header h3 {
+    flex: 1;
     margin: 0;
 }
 
@@ -28,4 +35,18 @@
     padding: 10px;
     border-top: 1px solid #EEEEEE;
     border-bottom: 1px solid #EEEEEE;
+}
+
+
+.headerClose {
+    color: #000;
+    background: transparent;
+    border: none;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+.headerClose:hover {
+    color: #d9d9d9;
+    background: transparent;
 }

@@ -2,16 +2,16 @@ import * as React from 'react';
 
 import styles from './Button.module.css';
 
-const Button = ({type, className, ...rest}) => {
-    let buttonType;
-    switch (type) {
+const Button = ({variant, className, ...rest}) => {
+    let buttonVariant;
+    switch (variant) {
         case 'secondary':
-            buttonType = styles.secondary;
+            buttonVariant = styles.secondary;
             break;
         default:
-            buttonType = styles.primary;
+            buttonVariant = styles.primary;
             break;
     }
-    return <button type='button' className={`${className} ${buttonType}`} {...rest}/>
+    return <button className={`${className} ${buttonVariant}`} {...rest}/>
 }
 export default Button;

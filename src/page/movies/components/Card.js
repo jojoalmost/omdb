@@ -10,21 +10,34 @@ const Card = ({
                   Type,
                   Year,
                   imdbID,
+                  onPreviewPoster,
               }) => {
     const history = useHistory();
-
     return (
-        <div className={styles.container} role="button">
+        <div className={styles.container}>
             <div className={styles.imageContainer}>
                 <img src={Poster} alt={Title} className={styles.poster} loading='lazy'/>
                 <Badge className={styles.badge} type={Type}>{Type}</Badge>
                 <div className={styles.imageOptions}>
-                    <Button type='secondary' onClick={() => alert('dsads')}>Preview</Button>
+                    <Button
+                        type='button'
+                        variant='secondary'
+                        onClick={() => onPreviewPoster(imdbID)}>
+                        Preview
+                    </Button>
                 </div>
             </div>
             <div className={styles.description}>
-                <h4>{Title} ({Year})</h4>
-                <Button type='secondary' onClick={() => history.push(`/movie/${imdbID}`)}>See Detail</Button>
+                <h5>{Title} ({Year})</h5>
+                <div>
+                    <Button
+                        type='button'
+                        variant='secondary'
+                        onClick={() => history.push(`/movie/${imdbID}`)}
+                    >
+                        See Detail
+                    </Button>
+                </div>
             </div>
         </div>
     )
