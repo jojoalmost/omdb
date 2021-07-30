@@ -1,5 +1,6 @@
 import {combineReducers} from 'redux';
 import moviesActionType from "./types";
+import {initStateMovieDetail} from "../../utils/defaultState";
 
 const initialState = {
     modal: {
@@ -7,6 +8,7 @@ const initialState = {
         path: '',
     },
     movies: [],
+    detail: {initStateMovieDetail},
 }
 const modal = (state = initialState.modal, {type, payload}) => {
     switch (type) {
@@ -17,7 +19,7 @@ const modal = (state = initialState.modal, {type, payload}) => {
     }
 }
 
-const movies = (state = initialState.movies, {type,payload}) => {
+const movies = (state = initialState.movies, {type, payload}) => {
     switch (type) {
         case moviesActionType.SET_MOVIES_LIST:
             return payload;
@@ -26,8 +28,17 @@ const movies = (state = initialState.movies, {type,payload}) => {
     }
 }
 
+const detail = (state = initialState.movies, {type, payload}) => {
+    switch (type) {
+        case moviesActionType.SET_MOVIE_DETAIL:
+            return payload;
+        default:
+            return state;
+    }
+}
+
 const reducer = combineReducers({
-    modal,
+    modal, movies, detail,
 });
 
 export default reducer;

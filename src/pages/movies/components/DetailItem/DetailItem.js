@@ -1,34 +1,34 @@
 import * as React from 'react';
 import styles from './DetailItem.module.css';
+import {useSelector} from "react-redux";
+import {getMovieDetail} from "../../../../stores/movies/selectors";
 
-const DetailItem = ({
-                        Actors,
-                        Awards,
-                        BoxOffice,
-                        Country,
-                        DVD,
-                        Director,
-                        Genre,
-                        Language,
-                        Metascore,
-                        Plot,
-                        Poster,
-                        Production,
-                        Rated,
-                        Ratings = [],
-                        Released,
-                        Response,
-                        Runtime,
-                        Title,
-                        Type,
-                        Website,
-                        Writer,
-                        Year,
-                        imdbID,
-                        imdbRating,
-                        imdbVotes,
-                    }) => {
-
+const DetailItem = () => {
+    const {
+        Actors,
+        Awards,
+        BoxOffice,
+        Country,
+        DVD,
+        Director,
+        Genre,
+        Language,
+        Metascore,
+        Plot,
+        Poster,
+        Production,
+        Rated,
+        Ratings = [],
+        Released,
+        Runtime,
+        Title,
+        Type,
+        Website,
+        Writer,
+        Year,
+        imdbRating,
+        imdbVotes,
+    } = useSelector(getMovieDetail);
     return (
         <div className={styles.container}>
             <div className={styles.leftContent}>

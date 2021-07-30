@@ -6,3 +6,10 @@ export const setModalPoster = (payload) => {
         payload,
     }
 }
+
+export const setMovieDetail = (payload) => {
+    return {
+        type: moviesActionType.SET_MOVIE_DETAIL,
+        payload,
+    }
+}
