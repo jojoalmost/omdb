@@ -1,4 +1,4 @@
-## Run Scrips
+## Run Script
 
 In the project directory, you can run:
 
@@ -24,6 +24,11 @@ Builds the app for production to the `build` folder.
     - delay pencarian ketika event ```onChange``` di trigger akan menjalankan kedalam custom hook ```useDebounce```
       yang diwatch dari ```React.useEffects```
     - ketika berhasil mendapatakan response maka hasil tersebut disimpan di store ```Redux``` dengan key ```movies```
+    - untuk ***infinite Scroll*** dipecah menjadi component wrapper. component ini memiliki ```event``` dengan
+      tipe ```scroll``` sebagai indikasi dia akan di scroll. wrapper ini akan dicek dengan
+      method ```getBoundingClientRect()``` dimana dia bisa mendektesi batas bawah dari wrapper tersebut dan
+      membandingkan dengan tinggi layar yang dilihat. dari situ akan diwatch dengan event ```scroll``` dan bisa
+      dikondisikan sesuai yang kita inginkan.
     - ketika menekan tombol preview dari poster, yang terjadi button itu akan mengirimkan ```id``` dari omdb tersebut
       dan mencari seluruh detail dari ```Redux store```. jika hasil dari pencarian ditemukan maka disimpan
       di ```store``` redux dengan nama key ```poster``` dan mengubah status modal dari ```false``` menjadi ```true```
@@ -33,5 +38,5 @@ Builds the app for production to the `build` folder.
     - hasil dari response tersebut juga disimpan di dalam store ```Redux``` dengan parent key ```movies``` di child key
       bernama ```detail```
     - terdapat tombol back yang menggunakan ```useHistory``` dari ```react-router``` untuk redirect ke halaman awal
- - unit test:
+- unit test:
     - untuk saat ini hanya berada di dir ```src/components```
