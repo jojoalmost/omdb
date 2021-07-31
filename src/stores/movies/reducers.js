@@ -7,7 +7,8 @@ const initialState = {
         title: '',
         path: '',
     },
-    movies: [],
+    list: [],
+    totalPage: 0,
     detail: {initStateMovieDetail},
 }
 const modal = (state = initialState.modal, {type, payload}) => {
@@ -19,16 +20,29 @@ const modal = (state = initialState.modal, {type, payload}) => {
     }
 }
 
-const movies = (state = initialState.movies, {type, payload}) => {
+const list = (state = initialState.list, {type, payload}) => {
     switch (type) {
         case moviesActionType.SET_MOVIES_LIST:
-            return payload;
+            return payload.Search;
+        case moviesActionType.MERGE_MOVIES_LIST:
+            return [...state, ...payload.Search];
         default:
             return state;
     }
 }
 
-const detail = (state = initialState.movies, {type, payload}) => {
+const totalPage = (state = initialState.totalPage, {type, payload}) => {
+    switch (type) {
+        case moviesActionType.SET_MOVIES_LIST:
+            const {totalResults = 0, Search = []} = payload;
+            const totalPage = Math.ceil(Number(totalResults) / Search.length);
+            return totalPage;
+        default:
+            return state;
+    }
+}
+
+const detail = (state = initialState.detail, {type, payload}) => {
     switch (type) {
         case moviesActionType.SET_MOVIE_DETAIL:
             return payload;
@@ -38,7 +52,7 @@ const detail = (state = initialState.movies, {type, payload}) => {
 }
 
 const reducer = combineReducers({
-    modal, movies, detail,
+    modal, list, detail, totalPage,
 });
 
 export default reducer;

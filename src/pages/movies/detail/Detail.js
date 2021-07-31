@@ -23,7 +23,7 @@ const Detail = () => {
     const {Title: title, Year: year} = useSelector(getMovieDetail);
     const {loading: isLoading, errorMessage} = useSelector(getMainApp);
 
-    const fetchDetail = async () => {
+    const fetchDetail = React.useCallback(async () => {
         try {
             dispatch(showLoading());
             const res = await api.get('', {
@@ -39,12 +39,12 @@ const Detail = () => {
         } finally {
             dispatch(hideLoading())
         }
-    }
+    }, [movieId, dispatch])
 
     React.useEffect(() => {
         dispatch(clearErrorMessage());
         fetchDetail();
-    }, [movieId]);
+    }, [movieId, dispatch, fetchDetail]);
 
 
     if (isLoading) return <LoadingWrapper/>;
