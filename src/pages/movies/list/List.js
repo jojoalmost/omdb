@@ -27,6 +27,8 @@ const List = () => {
 
     const debouncedSearch = useDebounce(query, 500);
 
+    const hasMoreData = page < totalPage;
+
     const handleSearch = (value) => {
         setQuery(value);
     };
@@ -77,7 +79,7 @@ const List = () => {
         if (errorMessage) return <Alert type="error">{errorMessage}</Alert>
         return (
             <InfiniteScroll
-                hasMoreData={page < totalPage}
+                hasMoreData={hasMoreData}
                 isLoading={isLoading}
                 onBottomHit={handleLoadMore}
                 loadOnMount={false}
